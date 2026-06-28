@@ -1,0 +1,18 @@
+opam-version: "2.0"
+name: "la"
+version: "0.1.0"
+synopsis: "A simple ls"
+maintainer: "lyra"
+authors: "lyra"
+license: "MIT"
+homepage: "https://github.com/lyraplasma"
+bug-reports: ""
+depends: [
+  "ocaml" {>= "5.0"}
+  "dune" {>= "3.11"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
